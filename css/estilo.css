@@ -1,0 +1,215 @@
+@font-face{
+font-family: ubuntuRegular;
+src: url('../ttf/Ubuntu-R.ttf') format('truetype');
+}
+
+@font-face{
+font-family: ubuntuBold;
+src: url('../ttf/Ubuntu-B.ttf') format('truetype');
+}
+
+@font-face{
+font-family: ubuntuBoldItalic;
+src: url('../ttf/Ubuntu-BI.ttf') format('truetype');
+}
+
+@font-face{
+font-family: ubuntuItalic;
+src: url('../ttf/Ubuntu-I.ttf') format('truetype');
+}
+
+:root {
+    --bg-color: #f0f2f5;
+    --paper-color: #ffffff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--bg-color);
+	width: 99%;		
+	font-family: ubuntuRegular;
+	font-size: 100%;
+	margin: 0 auto;
+	border: 2px solid blue;
+	box-shadow: 5px 15px 15px black;
+	border-radius: 10px;
+}
+
+hr {
+	margin-top: 10px;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+}
+
+h2 {
+	font-size: 1.5em;	
+}
+
+h3 {
+	font-size: 1.17em;	
+}
+
+h4 {
+	font-size: 1em;
+}
+
+h5 {
+	font-size: .87em;
+}
+
+h6 {
+	font-size: .67em;
+}
+
+footer p{
+	text-align: center;	
+}
+
+main {
+	height: auto;
+}
+
+header {
+	height: 150px;
+	display: flex;
+	align-items: center;
+}
+
+#main-view {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 100%; /* Cambiado de 95% para evitar recortes */
+    justify-content: center;
+}
+
+#markdown-input {
+    flex: 1;
+    height: 80vh;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    resize: none;
+}
+
+#preview {      
+    padding: 20mm;
+    width: 210mm;       /* Ancho A4 exacto */
+    background-color: var(--paper-color);
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    min-height: 250mm;  /* Alto A4 exacto */
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    
+    /* Regla crítica para evitar que elementos internos se alineen en center */
+    text-align: left; 
+}
+
+/* Estilos para elementos internos del preview */
+#preview h1 { 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px;
+    color: #2c3e50;
+    text-align: left; /* El h1 global era center, aquí lo reseteamos */
+}
+
+#preview p {
+    text-align: justify;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+#preview code { 
+    background: #f4f4f4; 
+    padding: 2px 4px; 
+    border-radius: 4px; 
+}
+
+#preview pre, #preview code {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;  
+}
+
+/* Evita que un elemento se rompa a la mitad entre dos páginas */
+#preview p, 
+#preview blockquote, 
+#preview pre,
+#preview li,
+#preview h1,
+#preview h2 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Fuerza que los títulos siempre empiecen en una página nueva si están muy abajo */
+#preview h1, 
+#preview h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Clase de utilidad por si quieres forzar un salto de página manual en tu Markdown */
+.html2pdf__page-break {
+    display: block;
+    height: 0;
+    page-break-before: always;
+    break-before: always;
+}
+
+.actions {
+	text-align: center;
+	margin: 1em 0 1em;
+
+	button {
+		padding: 1em;
+	}
+}
+
+@media print {
+    /* Limpieza total del body para que no interfiera con el PDF */
+    body { 
+        margin: 0 !important; 
+        border: none !important; 
+        box-shadow: none !important;
+        width: 100% !important;
+        background: white !important;
+    }
+
+    /* Ocultamos elementos que no deben salir en el PDF */
+    header, #markdown-input, .actions, hr {
+        display: none !important;
+    }
+
+    /* Forzamos que el contenedor sea invisible para el flujo */
+    #main-view {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #preview {
+        box-shadow: none !important;
+        margin: 0 !important;
+        /* Aseguramos que empiece arriba del todo */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

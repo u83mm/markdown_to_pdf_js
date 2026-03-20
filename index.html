@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Aquí va el title</title>
+		<link rel="shorcut icon" href="imagen para el favicon">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="robots" content="All">  
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+		<script type="text/javascript" src="js/eventos.js" defer></script>
+	</head>
+
+	<body>
+		<main>
+			<header>
+				<h1>Markdown to pdf</h1>
+			</header>
+			<noscript><h4>Tienes javaScript desactivado</h4></noscript>
+			<section class="editor-container">
+				<div class="actions">
+					<button id="btn-download">Exportar a PDF</button>
+					<button id="btn-clear-editor">Limpiar Editor</button>
+				</div>
+
+				<div id="main-view">
+					<textarea name="markdown-input" id="markdown-input" placeholder="Escribe tu markdown aquí...."></textarea>
+
+					<div id="preview" class="preview-area">
+						<p>La previsualización aparecerá aquí...</p>
+					</div>
+				</div>								
+			</section>
+		</main>
+	</body>
+</html>
+		

@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 		<script type="text/javascript" src="js/eventos.js" defer></script>
 	</head>
 
@@ -22,17 +23,18 @@
 			</header>
 			<noscript><h4>Tienes javaScript desactivado</h4></noscript>
 			<section class="editor-container">
+				<div class="actions">
+					<button id="btn-download">Exportar a PDF</button>
+					<button id="btn-clear-editor">Limpiar Editor</button>
+				</div>
+
 				<div id="main-view">
 					<textarea name="markdown-input" id="markdown-input" placeholder="Escribe tu markdown aquí...."></textarea>
 
 					<div id="preview" class="preview-area">
 						<p>La previsualización aparecerá aquí...</p>
 					</div>
-				</div>
-				
-				<div class="actions">
-					<button id="btn-download">Exportar a PDF</button>
-				</div>
+				</div>								
 			</section>
 		</main>
 	</body>

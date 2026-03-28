@@ -44,7 +44,7 @@ function exportToPdf(element, btn) {
 
     // Setting the PDF options
     const options = {
-        margin: 10,
+        margin: [15, 10, 15, 10],
         filename: "mi-documento.pdf",
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 

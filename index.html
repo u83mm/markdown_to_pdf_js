@@ -17,24 +17,21 @@
 	</head>
 
 	<body>
-		<main>
-			<header>
+		<header>
 				<h1>Markdown to pdf</h1>
 			</header>
 			<noscript><h4>Tienes javaScript desactivado</h4></noscript>
+		<main>			
+			<div class="actions">
+				<button id="btn-download">Exportar a PDF</button>
+				<button id="btn-clear-editor">Limpiar Editor</button>
+			</div>
 			<section class="editor-container">
-				<div class="actions">
-					<button id="btn-download">Exportar a PDF</button>
-					<button id="btn-clear-editor">Limpiar Editor</button>
-				</div>
+				<textarea name="markdown-input" id="markdown-input" placeholder="Escribe tu markdown aquí...."></textarea>
 
-				<div id="main-view">
-					<textarea name="markdown-input" id="markdown-input" placeholder="Escribe tu markdown aquí...."></textarea>
-
-					<div id="preview" class="preview-area">
-						<p>La previsualización aparecerá aquí...</p>
-					</div>
-				</div>								
+				<div id="preview" class="preview-area">
+					<p>La previsualización aparecerá aquí...</p>
+				</div>							
 			</section>
 		</main>
 	</body>

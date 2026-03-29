@@ -183,7 +183,7 @@
 		page-break-inside: auto;     /* Permite que la tabla se divida */
 	}
 
-	#preview code.language-bash {
+	#preview pre code {
 		display: table-cell; /* El contenido vive en una celda */
 		padding: 10px;
 		line-height: 1.6;    /* Un interlineado generoso ayuda al algoritmo de corte */
